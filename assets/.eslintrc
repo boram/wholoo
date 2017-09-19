@@ -1,0 +1,59 @@
+{
+  "extends": "airbnb",
+  "parser": "babel-eslint",
+  "plugins": ["mocha"],
+  "env": {
+    "browser": true,
+    "node": true
+  },
+  "rules": {
+    "mocha/no-exclusive-tests": 1,
+    "import/no-extraneous-dependencies": ["error", { devDependencies: true }],
+    "react/prop-types": 0,
+    "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
+    "semi": [2, "never"],
+    "no-use-before-define": [2, {functions: false}],
+    "react/sort-comp": [ 2, {
+      "order": [
+        "defaultProps",
+        "props",
+        "state",
+        "static-methods",
+        "constructor",
+        "lifecycle",
+        "/^on.+$/",
+        "everything-else",
+        "/^render.+$/",
+        "render"
+      ],
+    }],
+    "no-duplicate-imports": 0,
+    "no-confusing-arrow": 0,
+    "no-unused-vars": [
+      "error", {
+        vars: "local",
+        args: "after-used",
+        "varsIgnorePattern": "^_",
+        "argsIgnorePattern": "^_",
+      }
+    ],
+  },
+  "globals": {
+    "describe": true,
+    "it": true,
+    "before": true,
+    "beforeEach": true,
+    "afterEach": true,
+    "context": true,
+    "$": true,
+    "ReactClass": true,
+    "React": true,
+    "Provider": true,
+    "shallow": true,
+    "mount": true,
+    "expect": true,
+    "createSpy": true,
+    "spyOn": true,
+    "fetchMock": true,
+  }
+}
