@@ -1,4 +1,4 @@
-import "phoenix_html"
+import 'phoenix_html'
 import React from 'react'
 import ReactDOM from 'react-dom'
 import Composer from './components/Composer'
