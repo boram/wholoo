@@ -12,6 +12,7 @@
   "rules": {
     "mocha/no-exclusive-tests": 1,
     "import/no-extraneous-dependencies": ["error", { devDependencies: true }],
+    "import/prefer-default-export": 0,
     "react/prop-types": 0,
     "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
     "semi": [2, "never"],
