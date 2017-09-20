@@ -3,8 +3,15 @@
   "parser": "babel-eslint",
   "plugins": [
     "mocha",
-    "flowtype"
+    "flowtype",
   ],
+  "settings": {
+    "import/resolver": {
+      "webpack": {
+        "config": "webpack.config.js"
+      }
+    }
+  },
   "env": {
     "browser": true,
     "node": true

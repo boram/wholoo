@@ -1,6 +1,8 @@
 const path = require('path')
 const ExtractTextPlugin = require("extract-text-webpack-plugin")
 
+const APP_DIR = path.resolve(__dirname)
+
 module.exports = {
   entry: [
     'babel-polyfill',
@@ -35,5 +37,11 @@ module.exports = {
   },
   plugins: [
     new ExtractTextPlugin('css/app.css')
-  ]
+  ],
+  resolve: {
+    alias: {
+      components: path.join(APP_DIR, '/js/components'),
+      theme: path.join(APP_DIR, '/js/theme')
+    }
+  }
 }
