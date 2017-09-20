@@ -4,7 +4,8 @@
   "scripts": {
     "test": "NODE_ENV=test mocha --compilers js:babel-core/register './js/spec/setup.js' './js/spec/globals.js' './js/**/*.spec.js'",
     "bundle": "webpack --config webpack.config.js",
-    "lint": "eslint ./js"
+    "lint": "eslint ./js",
+    "flow": "flow"
   },
   "dependencies": {
     "babel-polyfill": "^6.26.0",
@@ -18,6 +19,7 @@
     "babel-eslint": "^8.0.0",
     "babel-loader": "^7.1.2",
     "babel-preset-env": "^1.6.0",
+    "babel-preset-flow": "^6.23.0",
     "babel-preset-react": "^6.24.1",
     "css-loader": "^0.28.7",
     "enzyme": "^2.9.1",
@@ -30,6 +32,7 @@
     "expect": "^21.1.0",
     "extract-text-webpack-plugin": "^3.0.0",
     "fetch-mock": "^5.12.2",
+    "flow-bin": "^0.54.1",
     "jsdom": "^11.2.0",
     "mocha": "^3.5.3",
     "react-test-renderer": "^15.6.1",
