@@ -4,44 +4,44 @@ const ExtractTextPlugin = require("extract-text-webpack-plugin")
 const APP_DIR = path.resolve(__dirname)
 
 module.exports = {
-  entry: [
-    'babel-polyfill',
-    path.resolve(__dirname, './css/app.css'),
-    path.resolve(__dirname, './js/app.js')
-  ],
+  context: path.resolve(__dirname),
+  entry: ['babel-polyfill', './js/app.js', './css/stylesheet.css'],
   output: {
     path: path.resolve(__dirname, '../priv/static'),
     filename: 'js/app.js',
-    publicPath: 'http://localhost:8080/'
+    publicPath: 'http://localhost:8080/',
   },
   devServer: {
     headers: {
       'Access-Control-Allow-Origin': '*'
-    }
+    },
   },
   module: {
     rules: [
       {
         test: /\.js$/,
         exclude: [/node_modules/],
-        use: ['babel-loader']
+        use: ['babel-loader'],
       },
       {
         test: /\.css$/,
         use: ExtractTextPlugin.extract({
           fallback: 'style-loader',
-          use: 'css-loader'
+          use: 'css-loader',
         }),
       }
     ]
   },
   plugins: [
-    new ExtractTextPlugin('css/app.css')
+    new ExtractTextPlugin({
+      filename: 'css/stylesheet.css',
+      allChunks: true,
+    }),
   ],
   resolve: {
     alias: {
       components: path.join(APP_DIR, '/js/components'),
-      theme: path.join(APP_DIR, '/js/theme')
+      theme: path.join(APP_DIR, '/js/theme'),
     }
   }
 }
