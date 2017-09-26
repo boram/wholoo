@@ -1,9 +1,11 @@
+const webpack = require('webpack')
 const path = require('path')
 const ExtractTextPlugin = require("extract-text-webpack-plugin")
 
 const APP_DIR = path.resolve(__dirname)
+const nodeEnv = process.env.MIX_ENV || 'dev'
 
-module.exports = {
+const config = {
   context: path.resolve(__dirname),
   entry: ['babel-polyfill', './js/app.js', './css/stylesheet.css'],
   output: {
@@ -45,3 +47,13 @@ module.exports = {
     }
   }
 }
+
+if (nodeEnv == 'prod') {
+  config.plugins = config.plugins.concat([
+    new webpack.optimize.UglifyJsPlugin({
+      sourceMap: true,
+    }),
+  ])
+}
+
+module.exports = config
