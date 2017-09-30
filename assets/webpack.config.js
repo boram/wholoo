@@ -6,10 +6,10 @@ const APP_DIR = path.resolve(__dirname)
 const nodeEnv = process.env.MIX_ENV || 'dev'
 
 const config = {
-  context: path.resolve(__dirname),
+  context: __dirname,
   entry: ['babel-polyfill', './js/app.js', './css/stylesheet.css'],
   output: {
-    path: path.resolve(__dirname, '../priv/static'),
+    path: path.resolve(__dirname, '../priv/bundles'),
     filename: 'js/app.js',
     publicPath: 'http://localhost:8080/',
   },
