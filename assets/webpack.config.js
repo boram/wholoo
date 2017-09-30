@@ -1,6 +1,7 @@
 const webpack = require('webpack')
 const path = require('path')
 const ExtractTextPlugin = require("extract-text-webpack-plugin")
+const CopyWebpackPlugin = require('copy-webpack-plugin')
 
 const APP_DIR = path.resolve(__dirname)
 const nodeEnv = process.env.MIX_ENV || 'dev'
@@ -39,6 +40,10 @@ const config = {
       filename: 'css/stylesheet.css',
       allChunks: true,
     }),
+    new CopyWebpackPlugin([{
+      from: path.resolve(__dirname, 'static'),
+      to: path.resolve(__dirname, '../priv/bundles')
+    }])
   ],
   resolve: {
     alias: {
