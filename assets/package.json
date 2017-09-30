@@ -43,6 +43,7 @@
     "jsdom": "^11.2.0",
     "mocha": "^3.5.3",
     "polished": "^1.7.0",
+    "postcss-custom-properties": "^6.1.0",
     "postcss-import": "^11.0.0",
     "postcss-loader": "^2.0.6",
     "react-test-renderer": "^15.6.1",
