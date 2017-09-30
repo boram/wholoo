@@ -1,3 +1,5 @@
+@import 'colors.css';
+
 body {
-  background-color: green;
+  background-color: var(--black400);
 }
