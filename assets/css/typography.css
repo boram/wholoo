@@ -1,0 +1,5 @@
+@import 'fonts.css';
+
+h1 {
+  font-family: var(--headerFont);
+}

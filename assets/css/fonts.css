@@ -1,0 +1,28 @@
+@font-face {
+  font-family: 'Lato Regular';
+  src: url('../static/fonts/Lato-Regular.ttf') format('truetype');
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Lato Bold';
+  src: url('../static/fonts/Lato-Bold.ttf') format('truetype');
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Quattrocento Sans Regular';
+  src: url('../static/fonts/QuattrocentoSans-Regular.ttf') format('truetype');
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Quattrocento Sans Bold';
+  src: url('../static/fonts/QuattrocentoSans-Bold.ttf') format('truetype');
+  font-style: normal;
+}
+
+:root {
+  --headerFont: 'Lato Bold', sans-serif;
+  --bodyFont: 'Quattrocento Sans Regular', sans-serif;
+}

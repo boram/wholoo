@@ -1,5 +1,8 @@
 @import 'colors.css';
+@import 'fonts.css';
+@import 'typography.css';
 
 body {
   background-color: var(--black400);
+  font-family: var(--bodyFont);
 }
