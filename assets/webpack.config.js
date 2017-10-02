@@ -4,15 +4,15 @@ const ExtractTextPlugin = require("extract-text-webpack-plugin")
 const CopyWebpackPlugin = require('copy-webpack-plugin')
 
 const APP_DIR = path.resolve(__dirname)
-const nodeEnv = process.env.MIX_ENV || 'dev'
+const STATIC_ASSETS_DIR = path.resolve(__dirname, 'static')
+const PUBLIC_ASSETS_DIR = path.resolve(__dirname, '../priv/static')
 
 const config = {
   context: __dirname,
   entry: ['babel-polyfill', './js/app.js', './css/stylesheet.css'],
   output: {
-    path: path.resolve(__dirname, '../priv/bundles'),
+    path: PUBLIC_ASSETS_DIR,
     filename: 'js/app.js',
-    publicPath: 'http://localhost:8080/',
   },
   devServer: {
     headers: {
@@ -48,8 +48,8 @@ const config = {
       allChunks: true,
     }),
     new CopyWebpackPlugin([{
-      from: path.resolve(__dirname, 'static'),
-      to: path.resolve(__dirname, '../priv/bundles')
+      from: STATIC_ASSETS_DIR,
+      to: PUBLIC_ASSETS_DIR,
     }])
   ],
   resolve: {
@@ -60,6 +60,7 @@ const config = {
   }
 }
 
+const nodeEnv = process.env.MIX_ENV || 'dev'
 if (nodeEnv == 'prod') {
   config.plugins = config.plugins.concat([
     new webpack.optimize.UglifyJsPlugin({

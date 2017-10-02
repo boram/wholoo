@@ -13,14 +13,9 @@ config :wholoo, WholooWeb.Endpoint,
   check_origin: false,
   watchers: [
     node: [
-      "node_modules/.bin/webpack-dev-server",
-      "--inline",
-      "--hot",
-      "--stdin",
-      "--host", "localhost",
-      "--port", "8080",
-      "--public", "localhost:8080",
-      "--config", "webpack.config.js",
+      "node_modules/.bin/webpack",
+      "--watch",
+      "--color",
       cd: Path.expand("../assets", __DIR__)
     ]
   ]
