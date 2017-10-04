@@ -6,13 +6,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
     <meta name="author" content="">
-    <title>Wholoo</title>
+    <title><%= title @conn, "Wholoo" %></title>
     <link rel="stylesheet" href="<%= static_path(@conn, "/css/stylesheet.css") %>" />
   </head>
 
-  <body>
-    <main>
+  <body class="<%= body_class(@conn) %>">
+    <div class='container'>
       <%= render @view_module, @view_template, assigns %>
-    </main>
+    </div>
   </body>
 </html>
