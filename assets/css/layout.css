@@ -1,0 +1,17 @@
+:root {
+  --maxPageWidth: 1440px;
+}
+
+html, body {
+  height: 100%;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+}
+
+.container {
+  max-width: var(--maxPageWidth);
+  width: 66%;
+}

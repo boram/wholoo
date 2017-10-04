@@ -1,0 +1,21 @@
+:root {
+  --iconSize: 320px;
+}
+
+.page-index .container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.page-index .container .preview-icon {
+  height: 50%;
+  width: 100%;
+  max-width: var(--iconSize);
+  max-height: var(--iconSize);
+  background-image: url(../static/images/logo.png);
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+}

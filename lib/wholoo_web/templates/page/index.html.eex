@@ -1,2 +1,2 @@
-<%= img_tag(static_path(@conn, "/images/logo.png")) %>
+<div class="preview-icon" />
 

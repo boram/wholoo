@@ -1,6 +1,8 @@
 @import 'colors.css';
 @import 'fonts.css';
 @import 'typography.css';
+@import 'layout.css';
+@import 'pages/index.css';
 
 body {
   background-color: var(--black400);
