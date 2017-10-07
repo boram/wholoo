@@ -41,7 +41,8 @@ defmodule Wholoo.Mixfile do
       {:phoenix_live_reload, "~> 1.0", only: :dev},
       {:gettext, "~> 0.11"},
       {:cowboy, "~> 1.0"},
-      {:credo, "~> 0.8.7", only: [:dev, :test], runtime: false}
+      {:credo, "~> 0.8.7", only: [:dev, :test], runtime: false},
+      {:absinthe_plug, "~> 1.4.0-rc.0"}
     ]
   end
 
