@@ -44,6 +44,7 @@ defmodule Wholoo.Mixfile do
       {:credo, "~> 0.8.7", only: [:dev, :test], runtime: false},
       {:absinthe_plug, "~> 1.4.0-rc.0"},
       {:comeonin, "~> 4.0"},
+      {:argon2_elixir, "~> 1.2"},
     ]
   end
 
