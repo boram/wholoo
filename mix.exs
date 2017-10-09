@@ -42,7 +42,8 @@ defmodule Wholoo.Mixfile do
       {:gettext, "~> 0.11"},
       {:cowboy, "~> 1.0"},
       {:credo, "~> 0.8.7", only: [:dev, :test], runtime: false},
-      {:absinthe_plug, "~> 1.4.0-rc.0"}
+      {:absinthe_plug, "~> 1.4.0-rc.0"},
+      {:comeonin, "~> 4.0"},
     ]
   end
 
