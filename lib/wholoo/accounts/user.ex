@@ -14,7 +14,7 @@ defmodule Wholoo.Accounts.User do
   @doc false
   def changeset(%User{} = user, attrs) do
     user
-    |> cast(attrs, [:email, :password_hash])
-    |> validate_required([:email, :password_hash])
+    |> cast(attrs, [:email])
+    |> validate_required([:email])
   end
 end
