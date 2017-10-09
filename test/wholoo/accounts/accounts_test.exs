@@ -7,8 +7,9 @@ defmodule Wholoo.AccountsTest do
     alias Wholoo.Accounts.User
 
     @valid_attrs %{email: "foo@example.com"}
+    @invalid_attrs %{email: "not_an_email"}
+    @blank_attrs %{email: nil}
     @update_attrs %{email: "bar@example.com"}
-    @invalid_attrs %{email: nil}
 
     def user_fixture(attrs \\ %{}) do
       {:ok, user} =
@@ -34,8 +35,17 @@ defmodule Wholoo.AccountsTest do
       assert user.email == @valid_attrs[:email]
     end
 
-    test "create_user/1 with invalid data returns error changeset" do
+    test "create_user/1 without an email returns error changeset" do
+      assert {:error, %Ecto.Changeset{}} = Accounts.create_user(@blank_attrs)
+    end
+
+    test "create_user/1 with an malformed email returns error changeset" do
       assert {:error, %Ecto.Changeset{}} = Accounts.create_user(@invalid_attrs)
+    end
+
+    test "create_user/1 with an existing email returns error changeset" do
+      user_fixture()
+      assert {:error, changeset} = Accounts.create_user(@valid_attrs)
     end
 
     test "update_user/2 with valid data updates the user" do
