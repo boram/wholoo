@@ -13,6 +13,11 @@ defmodule WholooWeb.Router do
     plug :accepts, ["json"]
   end
 
+  forward "/graphiql",
+    Absinthe.Plug.GraphiQL,
+    schema: WholooWeb.Schema,
+    interface: :simple
+
   scope "/", WholooWeb do
     pipe_through :browser # Use the default browser stack
 
