@@ -13,6 +13,9 @@ defmodule WholooWeb.Router do
     plug :accepts, ["json"]
   end
 
+  forward "/api", Absinthe.Plug,
+    schema: WholooWeb.Schema
+
   forward "/graphiql",
     Absinthe.Plug.GraphiQL,
     schema: WholooWeb.Schema,

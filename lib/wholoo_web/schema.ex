@@ -1,6 +1,7 @@
 defmodule WholooWeb.Schema do
   use Absinthe.Schema
   alias Wholoo.{Repo, Accounts}
+  alias WholooWeb.Resolvers
 
   @desc "User"
   object :user do
@@ -21,12 +22,7 @@ defmodule WholooWeb.Schema do
     field :signup, :user do
       arg :email, non_null(:string)
       arg :password, non_null(:string)
-      resolve fn params, _ ->
-        case Accounts.create_user(params) do
-          {:ok, user} -> {:ok, user}
-          {:error, changeset} -> {:error, changeset.errors}
-        end
-      end
+      resolve &Resolvers.Accounts.create/2
     end
   end
 end
