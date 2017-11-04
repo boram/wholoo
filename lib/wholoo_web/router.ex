@@ -11,10 +11,16 @@ defmodule WholooWeb.Router do
 
   pipeline :api do
     plug :accepts, ["json"]
+    plug :fetch_session
+    plug :protect_from_forgery
   end
 
-  forward "/api", Absinthe.Plug,
-    schema: WholooWeb.Schema
+  scope "/api" do
+    pipe_through :api
+
+    forward "/", Absinthe.Plug,
+      schema: WholooWeb.Schema
+  end
 
   forward "/graphiql",
     Absinthe.Plug.GraphiQL,
