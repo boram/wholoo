@@ -71,6 +71,7 @@ const config = {
   resolve: {
     alias: {
       components: path.join(APP_DIR, '/js/components'),
+      pages: path.join(APP_DIR, '/js/pages'),
       theme: path.join(APP_DIR, '/js/theme'),
     }
   }
