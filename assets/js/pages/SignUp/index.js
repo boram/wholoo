@@ -1,7 +1,7 @@
 /* @flow */
 import React from 'react'
-import SignUpForm from 'components/SignUpForm'
+import SignUpFormWithData from 'components/SignUpForm'
 
-const SignUp = () => <SignUpForm />
+const SignUp = () => <SignUpFormWithData />
 
 export default SignUp
