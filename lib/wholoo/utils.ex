@@ -8,10 +8,16 @@ defmodule Wholoo.Utils do
 
   """
   def errors_on(changeset) do
-    Ecto.Changeset.traverse_errors(changeset, fn {message, opts} ->
-      Enum.reduce(opts, message, fn {key, value}, acc ->
-        String.replace(acc, "%{#{key}}", to_string(value))
-      end)
+    changeset
+    |> Ecto.Changeset.traverse_errors(&format_error/1)
+    |> Enum.map(fn {key, value} ->
+         %{key: key, message: value}
+       end)
+  end
+
+  defp format_error({msg, opts}) do
+    Enum.reduce(opts, msg, fn {key, value}, acc ->
+      String.replace(acc, "%{#{key}}", to_string(value))
     end)
   end
 end

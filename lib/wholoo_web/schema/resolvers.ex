@@ -3,13 +3,10 @@ defmodule WholooWeb.Resolvers.Accounts do
 
   def create(params, _) do
     case Accounts.create_user(params) do
-      {:ok, user} -> {:ok, user}
+      {:ok, user} ->
+        {:ok, %{user: user}}
       {:error, changeset} ->
-        {
-          :error,
-          message: "Sign up failed",
-          details: Utils.errors_on(changeset)
-        }
+        {:ok, %{errors: Utils.errors_on(changeset)}}
     end
   end
 end

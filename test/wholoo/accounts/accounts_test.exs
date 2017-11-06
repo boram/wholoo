@@ -20,57 +20,66 @@ defmodule Wholoo.AccountsTest do
   end
 
   describe "create_user/1" do
-    @valid_attrs %{email: "foo@example.com", password: "foobar"}
-    @invalid_attrs %{email: "not_an_email", password: "fiver"}
-    @blank_attrs %{email: nil, password: nil}
-
     test "creates a user" do
-      assert {:ok, %User{} = user} = Accounts.create_user(@valid_attrs)
-      assert user.email == @valid_attrs[:email]
+      attrs = %{email: "user@example.com", password: "password"}
+
+      assert {:ok, %User{} = user} = Accounts.create_user(attrs)
+      assert user.email == attrs.email
     end
 
     test "returns an error when email is blank" do
-      assert {:error, changeset} = Accounts.create_user(@blank_attrs)
-      assert %{email: ["can't be blank"]} = errors_on(changeset)
+      attrs = %{email: "", password: "password"}
+
+      assert {:error, changeset} = Accounts.create_user(attrs)
+      assert [%{key: :email, message: ["can't be blank"]}] = errors_on(changeset)
     end
 
     test "returns an error when email is malformed" do
-      assert {:error, changeset} = Accounts.create_user(@invalid_attrs)
-      assert %{email: ["has invalid format"]} = errors_on(changeset)
+      attrs = %{email: "malformed_email", password: "password"}
+
+      assert {:error, changeset} = Accounts.create_user(attrs)
+      assert [%{key: :email, message: ["has invalid format"]}] = errors_on(changeset)
     end
 
     test "returns an error when email exists" do
-      insert_user()
-      assert {:error, changeset} = Accounts.create_user(@valid_attrs)
-      assert %{email: ["has already been taken"]} = errors_on(changeset)
+      attrs = %{email: "user@example.com", password: "password"}
+      insert_user(attrs)
+
+      assert {:error, changeset} = Accounts.create_user(attrs)
+      assert [%{key: :email, message: ["has already been taken"]}] = errors_on(changeset)
     end
 
     test "returns an error when password is blank" do
-      assert {:error, changeset} = Accounts.create_user(@blank_attrs)
-      assert %{password: ["can't be blank"]} = errors_on(changeset)
+      attrs = %{email: "user@example.com", password: ""}
+
+      assert {:error, changeset} = Accounts.create_user(attrs)
+      assert [%{key: :password, message: ["can't be blank"]}] = errors_on(changeset)
     end
 
     test "returns an error when password is invalid" do
-      assert {:error, changeset} = Accounts.create_user(@invalid_attrs)
-      assert %{password: ["should be at least 6 character(s)"]} = errors_on(changeset)
+      attrs = %{email: "user@example.com", password: "short"}
+
+      assert {:error, changeset} = Accounts.create_user(attrs)
+      assert [%{key: :password, message: ["should be at least 6 character(s)"]}] =
+        errors_on(changeset)
     end
   end
 
   describe "update_user/2" do
-    @valid_update_attrs %{email: "bar@example.com"}
-    @invalid_update_attrs %{email: "not_an_email"}
-
     test "updates the user" do
-      user = insert_user()
-      assert {:ok, user} = Accounts.update_user(user, @valid_update_attrs)
-      assert %User{} = user
-      assert user.email == @valid_update_attrs[:email]
+      user = insert_user(%{email: "user@example.com", password: "password"})
+      attrs = %{email: "alias@example.com", password: "password"}
+
+      assert {:ok, user} = Accounts.update_user(user, attrs)
+      assert user.email == attrs.email
     end
 
     test "returns an error when email is malformed" do
-      user = insert_user()
-      assert {:error, changeset} = Accounts.update_user(user, @invalid_update_attrs)
-      assert %{email: ["has invalid format"]} = errors_on(changeset)
+      user = insert_user(%{email: "user@example.com", password: "password"})
+      attrs = %{email: "malformed_email", password: "password"}
+
+      assert {:error, changeset} = Accounts.update_user(user, attrs)
+      assert [%{key: :email, message: ["has invalid format"]}] = errors_on(changeset)
     end
   end
 
