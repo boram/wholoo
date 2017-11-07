@@ -1,18 +1,7 @@
-// @flow
 import React, { Component } from 'react'
 import { gql, graphql } from 'react-apollo'
 
-type Props = {
-  createUser: any
-}
-
-type State = {
-  email: string,
-  password: string,
-  errors: any,
-}
-
-export class SignUpForm extends Component<Props, State> {
+export class SignUpForm extends Component {
   state = {
     email: '',
     password: '',

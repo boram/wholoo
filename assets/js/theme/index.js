@@ -1,4 +1,3 @@
-/* @flow */
 import { rgba } from 'polished'
 
 export const colors = {

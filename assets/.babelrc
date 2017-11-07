@@ -4,9 +4,6 @@
     "stage-1",
     "react",
   ],
-  "plugins": [
-    "transform-flow-strip-types"
-  ],
   "env": {
     "test": {
       "plugins": [
