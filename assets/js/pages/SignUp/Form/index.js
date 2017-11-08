@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { gql, graphql } from 'react-apollo'
 
-export class SignUpForm extends Component {
+export class Form extends Component {
   state = {
     email: '',
     password: '',
@@ -78,7 +78,7 @@ const mutation = gql`
   }
 `
 
-const SignUpFormWithData = graphql(
+const FormWithData = graphql(
   mutation,
   {
     props: ({ mutate }) => ({
@@ -91,6 +91,6 @@ const SignUpFormWithData = graphql(
         }),
     }),
   },
-)(SignUpForm)
+)(Form)
 
-export default SignUpFormWithData
+export default FormWithData

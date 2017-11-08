@@ -1,6 +1,6 @@
 import React from 'react'
-import SignUpFormWithData from 'components/SignUpForm'
+import FormWithData from './Form'
 
-const SignUp = () => <SignUpFormWithData />
+const SignUp = () => <FormWithData />
 
 export default SignUp
