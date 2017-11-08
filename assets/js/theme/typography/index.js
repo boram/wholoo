@@ -5,9 +5,12 @@ const typography = {
   },
 
   sizes: {
-    small: '16px',
-    medium: '18px',
-    large: '19px',
+    small: { font: '16px', lineHeight: '24px' },
+    medium: { font: '18px', lineHeight: '27px' },
+    large: { font: '22px', lineHeight: '33px' },
+    xlarge: { font: '24px', lineHeight: '36px' },
+    xxlarge: { font: '28px', lineHeight: '42px' },
+    xxxlarge: { font: '32px', lineHeight: '48px' },
   },
 
   weights: {

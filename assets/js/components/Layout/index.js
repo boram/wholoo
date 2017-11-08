@@ -7,7 +7,7 @@ const Wrapper = styled.div`
   width: 100%;
   background-color: ${colors.black200};
   font-family: ${typo.fonts.body};
-  font-size: ${typo.sizes.medium};
+  font-size: ${typo.sizes.medium.font};
   text-rendering: optimizeLegibility;
   -moz-osx-font-smoothing: grayscale;
   font-smoothing: antialiased;

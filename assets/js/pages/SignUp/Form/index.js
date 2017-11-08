@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { gql, graphql } from 'react-apollo'
+import Input from 'components/Input'
 
 export class Form extends Component {
   state = {
@@ -38,25 +39,21 @@ export class Form extends Component {
 
     return (
       <form onSubmit={this.handleSubmit}>
-        <div className="input">
-          <input
-            name="email"
-            placeholder="Email"
-            value={email}
-            onChange={this.handleChange}
-          />
-          {errors.email && <span>{errors.email}</span>}
-        </div>
-        <div className="input">
-          <input
-            name="password"
-            placeholder="Password"
-            type="password"
-            value={password}
-            onChange={this.handleChange}
-          />
-          {errors.password && <span>{errors.password}</span>}
-        </div>
+        <Input
+          name="email"
+          placeholder="Email"
+          value={email}
+          errorMessage={errors.email}
+          onChange={this.handleChange}
+        />
+        <Input
+          name="password"
+          placeholder="Password"
+          type="password"
+          value={password}
+          errorMessage={errors.password}
+          onChange={this.handleChange}
+        />
         <button>Submit</button>
       </form>
     )
