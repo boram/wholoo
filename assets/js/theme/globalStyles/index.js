@@ -1,6 +1,17 @@
 import { injectGlobal } from 'styled-components'
+import styledNormalize from 'styled-normalize'
 
 injectGlobal`
+  ${styledNormalize}
+
+  html {
+    box-sizing: border-box;
+  }
+
+  *, *:before, *:after {
+    box-sizing: inherit;
+  }
+
   @font-face {
     font-family: 'Lato Bold';
     src: url('/fonts/Lato-Bold.ttf') format('truetype');
