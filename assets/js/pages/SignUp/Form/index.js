@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { gql, graphql } from 'react-apollo'
 import Input from 'components/Input'
+import Button from 'components/Button'
 
 export class Form extends Component {
   state = {
@@ -54,7 +55,7 @@ export class Form extends Component {
           errorMessage={errors.password}
           onChange={this.handleChange}
         />
-        <button>Submit</button>
+        <Button>Submit</Button>
       </form>
     )
   }
