@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { gql, graphql } from 'react-apollo'
-import Input from 'components/Input'
-import Button from 'components/Button'
+import Input from 'common/Input'
+import Button from 'common/Button'
 
 export class Form extends Component {
   state = {
