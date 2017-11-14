@@ -21,6 +21,12 @@ defmodule WholooWeb.Schema do
     field :user, :user
   end
 
+  @desc "User session type"
+  object :session do
+    field :auth_token, :string
+    field :user, :user
+  end
+
   query do
     field :users, list_of(:user) do
       resolve fn _, _ ->
@@ -29,12 +35,19 @@ defmodule WholooWeb.Schema do
     end
   end
 
-  @desc "Create user"
   mutation do
+    @desc "Sign up user"
     field :signup, :user_result do
       arg :email, non_null(:string)
       arg :password, non_null(:string)
       resolve &Resolvers.Accounts.create/2
+    end
+
+    @desc "Log in user"
+    field :login, :session do
+      arg :email, non_null(:string)
+      arg :password, non_null(:string)
+      resolve &Resolvers.Accounts.login/2
     end
   end
 end

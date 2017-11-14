@@ -9,4 +9,14 @@ defmodule WholooWeb.Resolvers.Accounts do
         {:ok, %{errors: Utils.errors_on(changeset)}}
     end
   end
+
+  def login(params, _) do
+    with {:ok, user} <- Wholoo.Accounts.authenticate(params[:email], params[:password]),
+         {:ok, jwt, _} <- Guardian.encode_and_sign(user, :access) do
+      {:ok, %{auth_token: jwt, user: user}}
+    else
+      _ ->
+        {:error, message: "Invalid credentials"}
+    end
+  end
 end

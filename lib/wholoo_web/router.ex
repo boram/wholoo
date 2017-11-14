@@ -13,6 +13,9 @@ defmodule WholooWeb.Router do
     plug :accepts, ["json"]
     plug :fetch_session
     plug :protect_from_forgery
+    plug Guardian.Plug.VerifyHeader, realm: "Bearer"
+    plug Guardian.Plug.LoadResource
+    plug WholooWeb.Context
   end
 
   scope "/api" do
