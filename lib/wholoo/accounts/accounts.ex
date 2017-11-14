@@ -5,7 +5,6 @@ defmodule Wholoo.Accounts do
 
   import Ecto.Query, warn: false
   alias Wholoo.Repo
-
   alias Wholoo.Accounts.User
 
   @doc """
@@ -100,5 +99,16 @@ defmodule Wholoo.Accounts do
   """
   def change_user(%User{} = user) do
     User.changeset(user, %{})
+  end
+
+  def authenticate(email, password) do
+    user = Repo.get_by(User, email: email)
+
+    with %{password_hash: password_hash} <- user,
+         true <- Comeonin.Argon2.checkpw(password, password_hash) do
+      {:ok, user}
+    else
+      _ -> :error
+    end
   end
 end
