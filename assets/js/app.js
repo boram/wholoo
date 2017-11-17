@@ -2,11 +2,12 @@ import 'phoenix_html'
 import 'theme/globalStyles'
 
 import React from 'react'
-import { BrowserRouter as Router, Route } from 'react-router-dom'
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 import ReactDOM from 'react-dom'
 import ApolloClient, { createNetworkInterface } from 'apollo-client'
 import { ApolloProvider } from 'react-apollo'
 import SignUp from 'pages/SignUp'
+import LogIn from 'pages/LogIn'
 
 const csrfToken = document.getElementsByName('csrf-token')[0].content
 const baseUrl = `${document.location.protocol}//${document.location.host}`
@@ -27,7 +28,10 @@ const client = new ApolloClient({
 const App = () => (
   <ApolloProvider client={client}>
     <Router>
-      <Route path="/signup" component={SignUp} />
+      <Switch>
+        <Route path="/signup" component={SignUp} />
+        <Route path="/login" component={LogIn} />
+      </Switch>
     </Router>
   </ApolloProvider>
 )
