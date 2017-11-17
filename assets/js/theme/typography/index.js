@@ -21,7 +21,7 @@ const typography = {
   },
 
   lineHeights: {
-    large: '1.3',
+    large: '1.3em',
   },
 }
 
