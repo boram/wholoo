@@ -22,6 +22,7 @@ export class Form extends Component {
     try {
       const { data: { login: { authToken } } } = await loginUser(email, password)
       window.localStorage.setItem('authToken', authToken)
+      window.location = '/dashboard'
     } catch (error) {
       const errors = error.graphQLErrors.map(gqlError => (
         gqlError.message.split(':')[1].trim()
