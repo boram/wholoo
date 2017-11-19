@@ -1,5 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
+import { layout } from 'theme'
 import Wrapper from '../common/Wrapper'
 
 const Container = styled.div`
@@ -7,6 +8,7 @@ const Container = styled.div`
   max-width: 1440px;
   height: 100%;
   margin: 0 auto;
+  padding: 0 ${layout.verticalGutter};
 `
 
 const LoggedIn = ({ children }) => (
