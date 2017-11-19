@@ -24,10 +24,10 @@ const Container = styled.div`
   height: 100%;
 `
 
-const Layout = ({ children }) => (
+const LoggedOut = ({ children }) => (
   <Wrapper>
     <Container>{children}</Container>
   </Wrapper>
 )
 
-export default Layout
+export default LoggedOut

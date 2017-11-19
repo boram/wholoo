@@ -1,5 +1,5 @@
 import React from 'react'
-import Layout from 'common/Layout'
+import Layout from 'common/layouts/LoggedOut'
 import H2 from 'common/H2'
 import FormWithData from './Form'
 
