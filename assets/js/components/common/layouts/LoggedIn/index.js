@@ -1,6 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import { layout } from 'theme'
+import Header from '../common/Header'
 import Wrapper from '../common/Wrapper'
 
 const Container = styled.div`
@@ -13,7 +14,12 @@ const Container = styled.div`
 
 const LoggedIn = ({ children }) => (
   <Wrapper>
-    <Container>{children}</Container>
+    <Container>
+      <Header />
+      <main>
+        {children}
+      </main>
+    </Container>
   </Wrapper>
 )
 

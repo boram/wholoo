@@ -70,11 +70,12 @@ const config = {
   ],
   resolve: {
     alias: {
-      components: path.join(APP_DIR, '/js/components'),
       config: path.join(APP_DIR, '/js/config'),
       theme: path.join(APP_DIR, '/js/theme'),
+      components: path.join(APP_DIR, '/js/components'),
       common: path.join(APP_DIR, '/js/components/common'),
       pages: path.join(APP_DIR, '/js/components/pages'),
+      images: path.join(APP_DIR, '/static/images'),
     }
   }
 }
