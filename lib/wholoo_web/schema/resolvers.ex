@@ -19,4 +19,13 @@ defmodule WholooWeb.Resolvers.Accounts do
         {:error, message: "Invalid credentials"}
     end
   end
+
+  def get_current_user(_, info) do
+    case info do
+      %{context: %{current_user: current_user}} ->
+        {:ok, current_user}
+      _ ->
+        {:ok, nil}
+    end
+  end
 end

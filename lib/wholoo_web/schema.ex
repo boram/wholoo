@@ -33,6 +33,11 @@ defmodule WholooWeb.Schema do
         {:ok, Repo.all(Accounts.User)}
       end
     end
+
+    @desc "Get the currently authenticated user"
+    field :current_user, :user do
+      resolve &Resolvers.Accounts.get_current_user/2
+    end
   end
 
   mutation do
