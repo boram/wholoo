@@ -1,6 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import Logo from '../Logo'
+import UserMenuWithData from './UserMenu'
 
 const Wrapper = styled.header`
   display: flex;
@@ -8,12 +9,11 @@ const Wrapper = styled.header`
   padding: 20px 0;
 `
 
-const Header = () => {
-  return (
-    <Wrapper>
-      <Logo />
-    </Wrapper>
-  )
-}
+const Header = () => (
+  <Wrapper>
+    <Logo />
+    <UserMenuWithData />
+  </Wrapper>
+)
 
 export default Header
