@@ -7,7 +7,7 @@ describe('<Composer />', () => {
     composer = shallow(<Composer />)
   })
 
-  it('renders dummy text', () => {
+  test('renders dummy text', () => {
     expect(composer.length).toBe(1)
   })
 })

@@ -12,12 +12,12 @@ describe('<Input />', () => {
     onChange: () => null,
   }
 
-  context('by default', () => {
+  describe('by default', () => {
     beforeEach(() => {
       input = shallow(<Input {...props} />)
     })
 
-    it('passes props to <InnerInput />', () => {
+    test('passes props to <InnerInput />', () => {
       innerInput = input.find(InnerInput)
       expect(innerInput.prop('name')).toBe(props.name)
       expect(innerInput.prop('placeholder')).toBe(props.placeholder)
@@ -27,13 +27,13 @@ describe('<Input />', () => {
     })
   })
 
-  context('when there is an error message', () => {
+  describe('when there is an error message', () => {
     beforeEach(() => {
       props.errorMessage = 'has invalid format'
       input = shallow(<Input {...props} />)
     })
 
-    it('renders <ErrorMessage />', () => {
+    test('renders <ErrorMessage />', () => {
       const errorMessage = input.find(ErrorMessage)
       expect(errorMessage.prop('children')).toMatch(props.errorMessage)
     })
