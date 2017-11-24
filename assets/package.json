@@ -2,9 +2,14 @@
   "repository": {},
   "license": "MIT",
   "scripts": {
-    "test": "NODE_ENV=test mocha --compilers js:babel-core/register './js/spec/setup.js' './js/spec/globals.js' './js/**/*.spec.js'",
+    "test": "jest",
     "watch": "webpack --watch-stdin --progress --color",
     "lint": "eslint ./js"
+  },
+  "jest": {
+    "setupFiles": [
+      "./js/test/env.js"
+    ]
   },
   "dependencies": {
     "apollo-client": "^1.9.3",
