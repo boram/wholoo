@@ -8,6 +8,7 @@
   },
   "jest": {
     "setupFiles": [
+      "./js/test/polyfills.js",
       "./js/test/env.js"
     ]
   },
