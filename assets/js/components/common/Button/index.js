@@ -19,14 +19,10 @@ const Wrapper = styled.button`
   }
 `
 
-const Button = (props) => {
-  const { children } = props
-
-  return (
-    <Wrapper>
-      {children}
-    </Wrapper>
-  )
-}
+const Button = ({ children }) => (
+  <Wrapper>
+    {children}
+  </Wrapper>
+)
 
 export default Button
