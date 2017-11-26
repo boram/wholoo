@@ -9,7 +9,8 @@
   "jest": {
     "setupFiles": [
       "./js/test/polyfills.js",
-      "./js/test/env.js"
+      "./js/test/env.js",
+      "jest-localstorage-mock"
     ]
   },
   "dependencies": {
@@ -48,6 +49,7 @@
     "fetch-mock": "^5.12.2",
     "file-loader": "^1.1.4",
     "jest": "^21.2.1",
+    "jest-localstorage-mock": "^2.1.0",
     "jsdom": "^11.2.0",
     "polished": "^1.7.0",
     "postcss-custom-properties": "^6.1.0",
