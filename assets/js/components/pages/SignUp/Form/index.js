@@ -10,10 +10,8 @@ export class Form extends Component {
     errors: {},
   }
 
-  handleSubmit = async (e: any) => {
+  handleSubmit = async (e) => {
     e.preventDefault()
-
-    this.setState({ errors: {} })
 
     const { createUser } = this.props
     const { email, password } = this.state
@@ -21,17 +19,23 @@ export class Form extends Component {
     const response = await createUser(email, password)
     const payload = response.data.signup
 
-    if (payload.errors.length) {
+    if (payload.errors && payload.errors.length) {
       const errors = payload.errors.reduce((acc, error) => {
         acc[error.key] = error.message
         return acc
       }, {})
 
       this.setState({ errors })
+    } else {
+      this.setState({
+        email: '',
+        password: '',
+        errors: {},
+      })
     }
   }
 
-  handleChange: (e: any) => void = (e) => {
+  handleChange = (e) => {
     this.setState({ [e.target.name]: e.target.value })
   }
 
