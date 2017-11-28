@@ -25,11 +25,13 @@
       "functions": "ignore"
     }],
     "mocha/no-exclusive-tests": 1,
+    "import/first": 0,
     "import/no-extraneous-dependencies": ["error", { devDependencies: true }],
     "import/prefer-default-export": 0,
     "react/prop-types": 0,
     "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
     "semi": [2, "never"],
+    "no-underscore-dangle": 0,
     "no-use-before-define": [2, {functions: false}],
     "no-unused-expressions": ["error", { "allowTaggedTemplates": true }],
     "react/sort-comp": [ 2, {
